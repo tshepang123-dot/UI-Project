@@ -1,0 +1,246 @@
+:root {
+  --bg: #101014;
+  --surface: #1a1a20;
+  --surface-raised: #212129;
+  --border: #2b2b34;
+  --text-primary: #f4f4f6;
+  --text-secondary: #9a9aa5;
+  --accent: #3d5afe;
+  --accent-hover: #5570ff;
+  --success: #2fae6b;
+  --success-hover: #38c67b;
+  --danger: #e5484d;
+  --danger-hover: #f0585d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.app-header {
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+}
+
+.app-title {
+  color: var(--accent-hover);
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+
+.app-subtitle {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* --- Form --- */
+
+.bookmark-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-heading {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+.field-input {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-primary);
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.field-textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.save-button {
+  margin-top: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.save-button:hover {
+  background: var(--accent-hover);
+}
+
+/* --- List --- */
+
+.list-heading {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.empty-state {
+  color: var(--text-secondary);
+}
+
+.bookmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bookmark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bookmark-title {
+  margin: 0 0 3px;
+  font-size: 0.95rem;
+}
+
+.bookmark-url {
+  color: var(--accent-hover);
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.bookmark-description {
+  color: var(--text-secondary);
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+}
+
+.bookmark-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag-badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.bookmark-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.visit-button,
+.delete-button {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.visit-button {
+  background: var(--success);
+  color: #fff;
+}
+
+.visit-button:hover {
+  background: var(--success-hover);
+}
+
+.delete-button {
+  background: var(--danger);
+  color: #fff;
+}
+
+.delete-button:hover {
+  background: var(--danger-hover);
+}
+
+/* --- Responsive breakpoints --- */
+
+@media (max-width: 1024px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .bookmark-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bookmark-actions {
+    width: 100%;
+  }
+
+  .visit-button,
+  .delete-button {
+    flex: 1;
+  }
+}
